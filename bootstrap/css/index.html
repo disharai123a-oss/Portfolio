@@ -1,0 +1,202 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
+import { TypingSystemCard } from "./components/TypingSystemCard";
+import { ComparisonMatrix } from "./components/ComparisonMatrix";
+import { MetaphorSection } from "./components/MetaphorSection";
+import { InteractiveExample } from "./components/InteractiveExample";
+import { Card } from "./components/ui/card";
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-8 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl mb-4">
+            🎉 Programming Language Types Made Fun! 🎉
+          </h1>
+          <p className="text-lg md:text-xl opacity-90">
+            Learn how languages handle data types through fun characters and easy metaphors! 🚀
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
+        {/* Introduction Card */}
+        <Card className="p-6 bg-white/80 border-2 border-purple-300">
+          <div className="text-center">
+            <h2 className="text-2xl mb-3">🎭 Meet the Four Typing Systems!</h2>
+            <p className="text-lg opacity-80">
+              Every programming language has its own personality when it comes to handling data types.
+              Let's meet our four friends! 👇
+            </p>
+          </div>
+        </Card>
+
+        {/* Main Tabs */}
+        <Tabs defaultValue="systems" className="w-full">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto gap-2 bg-transparent">
+            <TabsTrigger value="systems" className="data-[state=active]:bg-purple-500 data-[state=active]:text-white">
+              🎪 The Systems
+            </TabsTrigger>
+            <TabsTrigger value="metaphor" className="data-[state=active]:bg-blue-500 data-[state=active]:text-white">
+              🎫 Easy Way to Remember
+            </TabsTrigger>
+            <TabsTrigger value="interactive" className="data-[state=active]:bg-green-500 data-[state=active]:text-white">
+              🎮 Try It Out!
+            </TabsTrigger>
+            <TabsTrigger value="compare" className="data-[state=active]:bg-orange-500 data-[state=active]:text-white">
+              📊 Compare All
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="systems" className="space-y-6 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <TypingSystemCard
+                title="Static Typing"
+                emoji="🎯"
+                character="The Planner 📋"
+                description="Type checking happens at compile time - before your code even runs!"
+                features={[
+                  "Must declare data types before using variables",
+                  "Errors are caught early (before running)",
+                  "Faster execution, but less flexible",
+                  "Like planning a party guest list beforehand!",
+                ]}
+                examples={["C", "C++", "Java", "Rust"]}
+                color="bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300"
+                delay={0}
+              />
+
+              <TypingSystemCard
+                title="Dynamic Typing"
+                emoji="🎨"
+                character="The Improviser 🎭"
+                description="Type checking happens at runtime - while your program is running!"
+                features={[
+                  "Variable types can change automatically",
+                  "Easy and faster to write code",
+                  "Errors may appear only while executing",
+                  "Like figuring things out as you go!",
+                ]}
+                examples={["Python", "JavaScript", "Ruby"]}
+                color="bg-gradient-to-br from-purple-100 to-pink-100 border-purple-300"
+                delay={0.1}
+              />
+
+              <TypingSystemCard
+                title="Strong Typing"
+                emoji="🛡️"
+                character="The Rule Keeper 👮"
+                description="No automatic conversion between incompatible types!"
+                features={[
+                  "Must convert types explicitly",
+                  "Prevents unexpected behavior",
+                  "More reliable and predictable",
+                  "Like a strict bouncer at a club!",
+                ]}
+                examples={["Python", "Java", "Ruby"]}
+                color="bg-gradient-to-br from-green-100 to-emerald-100 border-green-300"
+                delay={0.2}
+              />
+
+              <TypingSystemCard
+                title="Weak Typing"
+                emoji="🤹"
+                character="The Shape Shifter 🔮"
+                description="Allows implicit type conversion (type coercion)!"
+                features={[
+                  "Mixing types may work automatically",
+                  "More flexible but potentially risky",
+                  "Can cause unpredictable results",
+                  "Like a flexible friend who adapts easily!",
+                ]}
+                examples={["C", "JavaScript", "PHP"]}
+                color="bg-gradient-to-br from-orange-100 to-yellow-100 border-orange-300"
+                delay={0.3}
+              />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="metaphor" className="space-y-6 mt-6">
+            <MetaphorSection />
+            
+            <Card className="p-6 bg-gradient-to-r from-yellow-100 to-orange-100 border-2 border-yellow-300">
+              <h3 className="text-xl mb-4 text-center">🎪 The Concert Metaphor</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-white/60 p-4 rounded-lg">
+                  <p className="text-center mb-2">🎫 <strong>Static vs Dynamic</strong></p>
+                  <p className="text-sm text-center opacity-75">
+                    <strong>When</strong> is your ticket checked?
+                  </p>
+                </div>
+                <div className="bg-white/60 p-4 rounded-lg">
+                  <p className="text-center mb-2">🔍 <strong>Strong vs Weak</strong></p>
+                  <p className="text-sm text-center opacity-75">
+                    <strong>How strict</strong> is the ticket scanner?
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="interactive" className="space-y-6 mt-6">
+            <InteractiveExample />
+          </TabsContent>
+
+          <TabsContent value="compare" className="space-y-6 mt-6">
+            <Card className="p-6 bg-white/80 border-2 border-indigo-300">
+              <h3 className="text-2xl text-center mb-2">🎯 Language Combinations</h3>
+              <p className="text-center opacity-75 mb-4">
+                Languages combine these systems in different ways!
+              </p>
+            </Card>
+            <ComparisonMatrix />
+            
+            <Card className="p-6 bg-gradient-to-r from-indigo-100 to-purple-100 border-2 border-indigo-300">
+              <h3 className="text-xl mb-4 text-center">💡 Why This Matters</h3>
+              <div className="space-y-3">
+                <div className="bg-white/60 p-4 rounded-lg">
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">🐍</span>
+                    <div>
+                      <p className="mb-1"><strong>Python</strong> feels flexible but still prevents wrong operations</p>
+                      <p className="text-sm opacity-75">Dynamic typing = easy to write, Strong typing = catches mistakes</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-white/60 p-4 rounded-lg">
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">🟨</span>
+                    <div>
+                      <p className="mb-1"><strong>JavaScript</strong> automatically converts data types</p>
+                      <p className="text-sm opacity-75">Dynamic + Weak = very flexible but watch for surprises!</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-white/60 p-4 rounded-lg">
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">⚙️</span>
+                    <div>
+                      <p className="mb-1"><strong>C</strong> requires declarations but sometimes behaves unpredictably</p>
+                      <p className="text-sm opacity-75">Static = plan ahead, Weak = allows some conversions</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </TabsContent>
+        </Tabs>
+
+        {/* Footer */}
+        <Card className="p-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white border-2 border-purple-600">
+          <div className="text-center">
+            <h3 className="text-2xl mb-3">🎓 Now You're a Pro!</h3>
+            <p className="text-lg">
+              You can choose the right programming language for your project based on how it handles types! 🚀✨
+            </p>
+          </div>
+        </Card>
+      </div>
+    </div>
+  );
+}

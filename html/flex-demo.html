@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+        }
+
+        .container {
+            width: 450px;
+            background: white;
+            margin: 40px auto;
+            padding: 20px;
+            border: 2px solid #999;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        fieldset {
+            border: 2px solid #888;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold'''''''''''''''''[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="number"] {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+
+        .skills label,
+        .gender label {
+            font-weight: normal;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+
+    <form>
+
+        <!-- Personal Info Section -->
+        <fieldset>
+            <legend>Personal Info</legend>
+
+            <label>Full Name:</label>
+            <input type="text" required>
+
+            <label>Email:</label>
+            <input type="email" required>
+
+            <label>Password:</label>
+            <input type="password" required>
+
+            <label>Date of Birth:</label>
+            <input type="date">
+
+            <label>Mobile Number:</label>
+            <input type="number">
+        </fieldset>
+
+
+        <!-- Preferences Section -->
+        <fieldset>
+            <legend>Preferences</legend>
+
+            <label>Gender:</label>
+            <div class="gender">
+                <input type="radio" name="gender"> Male <br>
+                <input type="radio" name="gender"> Female <br>
+                <input type="radio" name="gender"> Other
+            </div>
+
+            <br>
+
+            <label>Skills (Choose multiple):</label>
+            <div class="skills">
+                <input type="checkbox"> HTML <br>
+                <input type="checkbox"> CSS <br>
+                <input type="checkbox"> JavaScript <br>
+                <input type="checkbox"> Python
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>
+
+</body>
+</html>

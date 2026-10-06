@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+}
+
+.container {
+    width: 650px;
+    margin: 40px auto;
+    border: 2px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#username {
+    width: 260px;
+    height: 35px;
+    font-size: 16px;
+    padding-left: 8px;
+}
+
+#themeColor {
+    width: 70px;
+    height: 38px;
+    vertical-align: middle;
+}
+
+button {
+    width: 130px;
+    height: 40px;
+    background: green;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+h2 {
+    margin-top: 30px;
+    font-size: 40px;
+}

@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disha Rai — Editorial Portfolio & Digital Magazine</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: '#520C0C',
+                        darkMaroon: '#3A0808',
+                        cream: '#F5EFE6',
+                        lightCream: '#FAF6F0',
+                        charcoal: '#1A1A1A',
+                        softPink: '#E8C5C8',
+                        goldAccent: '#D4A373',
+                        goldBright: '#E9C46A'
+                    },
+                    fontFamily: {
+                        serif: ['Bodoni Moda', 'Playfair Display', 'serif'],
+                        display: ['Syne', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        script: ['Caveat', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome & Lucide Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #F5EFE6;
+            color: #1A1A1A;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Editorial Grid Background Lines */
+        .bg-grid-pattern {
+            background-image:
+                linear-gradient(to right, rgba(82, 12, 12, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(82, 12, 12, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .bg-grid-dark {
+            background-image:
+                linear-gradient(to right, rgba(245, 239, 230, 0.07) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(245, 239, 230, 0.07) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Oversized BG Text stroke effect */
+        .editorial-stroke {
+            -webkit-text-stroke: 1.5px rgba(82, 12, 12, 0.22);
+            color: transparent;
+        }
+
+        /* Washi Paper Tape Effect */
+        .paper-tape {
+            position: absolute;
+            height: 24px;
+            width: 110px;
+            background-color: rgba(245, 239, 230, 0.88);
+            border-left: 2px dashed rgba(82, 12, 12, 0.25);
+            border-right: 2px dashed rgba(82, 12, 12, 0.25);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+            transform: rotate(-3deg);
+            z-index: 20;
+            top: -12px;
+            left: 50%;
+            margin-left: -55px;
+        }
+
+        /* Scrapbook Photo Frame */
+        .magazine-frame {
+            position: relative;
+            box-shadow: 12px 12px 0px #520C0C;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .magazine-frame:hover {
+            box-shadow: 16px 16px 0px #520C0C;
+            transform: translate(-3px, -3px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F5EFE6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #520C0C;
+            border-radius: 4px;
+        }
+
+        /* Game Canvas styling */
+        #gameCanvas {
+            background: #1A1A1A;
+            touch-action: none;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+
+<body class="bg-cream text-charcoal bg-grid-pattern antialiased selection:bg-maroon selection:text-cream">
+
+    <nav class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-maroon/15 px-6 py-4 transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-2 group">
+                <span
+                    class="w-10 h-10 rounded-full bg-maroon text-cream flex items-center justify-center font-serif font-black text-lg shadow group-hover:scale-105 transition-transform">DR.</span>
+                <span class="font-display font-bold text-xl tracking-tight text-maroon uppercase">Disha Rai</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div
+                class="hidden md:flex items-center space-x-8 text-xs font-display font-bold uppercase tracking-widest text-maroon/80">
+                <a href="#home" class="hover:text-maroon transition-colors">HOME</a>
+                <a href="#about" class="hover:text-maroon transition-colors">ABOUT</a>
+                <a href="#game"
+                    class="hover:text-maroon transition-colors text-maroon font-black flex items-center gap-1.5 px-3 py-1 bg-maroon/10 rounded-full border border-maroon/20">
+                    <i data-lucide="gamepad-2" class="w-4 h-4 text-maroon"></i> DISHA WORLD
+                </a>
+                <a href="#projects" class="hover:text-maroon transition-colors">PROJECTS</a>
+                <a href="#skills" class="hover:text-maroon transition-colors">SKILLS</a>
+                <a href="#resume" class="hover:text-maroon transition-colors">RESUME</a>
+                <a href="#contact" class="hover:text-maroon transition-colors">CONTACT</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden lg:block">
+                <a href="#contact"
+                    class="px-5 py-2.5 bg-maroon text-cream text-xs font-display font-bold uppercase tracking-widest rounded-full hover:bg-darkMaroon transition-all shadow-md flex items-center gap-2">
+                    <span>GET IN TOUCH</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-maroon focus:outline-none p-2"
+                aria-label="Toggle Navigation">
+                <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-cream border-b border-maroon/20 px-6 py-6 space-y-4 text-center mt-2">
+            <a href="#home" class="mobile-link block text-base font-display font-bold text-maroon">HOME</a>
+            <a href="#about" class="mobile-link block text-base font-display font-bold text-maroon">ABOUT ME</a>
+            <a href="#game"
+                class="mobile-link block text-base font-display font-bold text-maroon bg-maroon/10 py-2 rounded-lg">🎮
+                PLAY DISHA WORLD</a>
+            <a href="#projects" class="mobile-link block text-base font-display font-bold text-maroon">PROJECTS</a>
+            <a href="#skills" class="mobile-link block text-base font-display font-bold text-maroon">SKILLS</a>
+            <a href="#resume" class="mobile-link block text-base font-display font-bold text-maroon">RESUME</a>
+            <a href="#contact" class="mobile-link block text-base font-display font-bold text-maroon">CONTACT</a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative min-h-[92vh] flex items-center justify-center py-12 px-6 overflow-hidden">
+
+        <!-- Massive Editorial Background Text Overlay -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 opacity-30">
+            <h1 class="text-[17vw] font-serif font-black editorial-stroke uppercase tracking-tighter leading-none">
+                PORTFOLIO
+            </h1>
+        </div>
+
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+
+            <!-- Hero Left Column -->
+            <div class="lg:col-span-7 space-y-6 text-left">
+
+                <div
+                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon/10 border border-maroon/20 text-maroon text-xs font-display font-bold tracking-widest uppercase">
+                    <span class="w-2 h-2 rounded-full bg-maroon animate-ping"></span>
+                    PW Institute of Innovation • Class of '29
+                </div>
+
+                <div class="space-y-2">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-light tracking-tight text-charcoal">
+                        Hi, I'm
+                    </h2>
+                    <h1
+                        class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-black text-maroon leading-none tracking-tight">
+                        DISHA RAI
+                    </h1>
+                </div>
+
+                <p
+                    class="text-xs sm:text-sm md:text-base font-display font-bold tracking-widest text-maroon/90 uppercase">
+                    FULL STACK DEVELOPER • COMPUTER SCIENCE STUDENT • DSA SOLVER
+                </p>
+
+                <!-- Handwritten Note & Arrow Indicator -->
+                <div class="relative py-2 pl-2">
+                    <div class="flex items-center gap-3 text-maroon font-script text-3xl sm:text-4xl">
+                        <span>building cool stuff with code ⚡</span>
+                        <svg class="w-16 h-8 text-maroon stroke-current fill-none" viewBox="0 0 60 25">
+                            <path d="M 2 12 Q 30 -5 55 18" stroke-width="2.5" stroke-linecap="round" />
+                            <path d="M 46 12 L 56 19 L 50 8" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="#projects"
+                        class="px-8 py-4 bg-maroon text-cream font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-darkMaroon transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <span>VIEW MY WORK</span>
+                        <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#game"
+                        class="px-8 py-4 bg-cream text-maroon border-2 border-maroon font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-maroon hover:text-cream transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <span>🎮 PLAY DISHA WORLD</span>
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-6 pt-4 text-xs font-display font-semibold text-charcoal/80">
+                    <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-maroon"></i>
+                        Bengaluru, India</span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4 text-maroon"></i> <a
+                            href="tel:+918817311297" class="hover:underline">+91 8817311297</a></span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="graduation-cap"
+                            class="w-4 h-4 text-maroon"></i> PWIOI (B.Tech CSE • 2nd Year)</span>
+                </div>
+            </div>
+
+            <!-- Hero Right Column (Editorial Photo Frame) -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <!-- Paper Tape Effect -->
+                    <div class="paper-tape"></div>
+
+                    <div class="magazine-frame bg-lightCream p-6 rounded-2xl border-2 border-maroon">
+                        <div
+                            class="relative rounded-xl overflow-hidden aspect-[4/5] bg-maroon/10 mb-4 border border-maroon/20">
+                            <img src="./dishaa.jpeg" alt="Disha Rai Profile" class="w-full h-full object-cover" />
+                            <div
+                                class="absolute bottom-3 left-3 bg-maroon/90 backdrop-blur-md text-cream text-[11px] font-display font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg border border-softPink/30">
+                                💻 FULL STACK & JAVA DEV
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 text-center">
+                            <div
+                                class="flex justify-between items-center text-xs font-mono font-bold text-maroon border-b border-maroon/10 pb-2">
+                                <span>PWIOI B.Tech CSE</span>
+                                <span>Class of 2029</span>
+                            </div>
+                            <p class="font-script text-2xl text-maroon pt-1">
+                                "Turn ideas into reality with clean code & algorithms."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-12 bg-lightCream border-y-2 border-maroon/20 px-6 text-center">
+        <div class="max-w-4xl mx-auto space-y-4">
+            <span class="font-script text-3xl sm:text-4xl text-maroon block">
+                "Okay... that's the PROFESSIONAL version. Want to see Disha World?" 🎮
+            </span>
+            <a href="#game"
+                class="inline-flex items-center gap-2 px-8 py-3.5 bg-maroon text-cream font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-darkMaroon transition-all">
+                <span>LAUNCH GAME EXPERIENCE</span>
+                <i data-lucide="gamepad" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="game" class="py-24 px-4 max-w-6xl mx-auto text-center relative">
+
+        <div class="mb-10 space-y-2">
+            <span class="text-xs font-display font-bold tracking-widest uppercase text-maroon">INTERACTIVE SLINGSHOT
+                GAME</span>
+            <h2 class="text-4xl sm:text-5xl font-serif font-black text-maroon">DISHA WORLD 🎮</h2>
+            <p class="font-script text-3xl text-maroon/80">
+                "Hit each target to eliminate it. Clear all targets to complete the level!"
+            </p>
+        </div>
+
+        <!-- Game Console Box -->
+        <div class="bg-maroon rounded-3xl p-4 sm:p-6 shadow-2xl border-4 border-darkMaroon relative overflow-hidden">
+
+            <!-- Game Top Header Bar -->
+            <div
+                class="flex flex-wrap justify-between items-center bg-darkMaroon text-cream px-5 py-3 rounded-2xl mb-4 text-xs sm:text-sm font-mono gap-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span class="text-softPink font-bold text-sm tracking-wider" id="levelName">LEVEL 1: CODING
+                        DESK</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                    <div
+                        class="flex items-center gap-1.5 bg-maroon/50 px-3 py-1 rounded-lg border border-emerald-400/30">
+                        <span class="text-cream/80">🎯 REMAINING:</span>
+                        <strong id="targetsLeftVal" class="text-emerald-400 font-bold text-sm sm:text-base">3 /
+                            3</strong>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-maroon/50 px-3 py-1 rounded-lg border border-softPink/30">
+                        <span class="text-cream/80">❌ MISSES:</span>
+                        <strong id="missesVal" class="text-softPink font-bold text-sm sm:text-base">0</strong>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span>XP:</span> <strong id="scoreVal" class="text-goldBright text-base">0</strong>
+                    </div>
+                    <button id="resetLevelBtn"
+                        class="px-3 py-1 bg-cream text-maroon rounded-lg hover:bg-softPink transition-colors text-xs font-display font-bold uppercase flex items-center gap-1">
+                        <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset
+                    </button>
+                </div>
+            </div>
+
+            <!-- Canvas Container -->
+            <div
+                class="relative w-full aspect-[16/9] bg-charcoal rounded-2xl overflow-hidden shadow-inner border border-cream/20">
+                <canvas id="gameCanvas" class="w-full h-full block"></canvas>
+
+                <!-- Game Overlay Screen -->
+                <div id="gameOverlay"
+                    class="absolute inset-0 bg-charcoal/90 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center space-y-4 transition-opacity duration-300 z-20">
+                    <span class="text-softPink font-script text-3xl">Ready for action?</span>
+                    <h3 id="overlayTitle" class="text-3xl sm:text-5xl font-serif font-black text-cream">
+                        DISHA WORLD LAUNCHER
+                    </h3>
+                    <p id="overlayDesc" class="text-cream/80 text-sm sm:text-base max-w-md font-sans">
+                        Drag back on the slingshot player avatar to launch Disha across the stage. Strike each target to
+                        eliminate it!
+                    </p>
+                    <button id="startGameBtn"
+                        class="px-8 py-3.5 bg-maroon text-cream font-display font-bold rounded-full uppercase tracking-widest text-xs hover:bg-softPink hover:text-maroon transition-all shadow-xl flex items-center gap-2">
+                        <span>START LEVEL 1</span>
+                        <i data-lucide="play" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Game Victory Overlay Screen -->
+                <div id="victoryOverlay"
+                    class="hidden absolute inset-0 bg-maroon p-6 overflow-y-auto flex flex-col items-center justify-center text-center space-y-4 z-30">
+                    <span class="text-goldBright font-script text-4xl">✦ VICTORY ✦</span>
+                    <h3 class="text-4xl sm:text-5xl font-serif font-black text-cream">
+                        ALL 5 LEVELS CLEARED!
+                    </h3>
+                    <p class="text-xs text-softPink font-mono uppercase tracking-widest">Disha World Mastery Achieved!
+                    </p>
+
+                    <div
+                        class="grid grid-cols-2 sm:grid-cols-5 gap-3 max-w-3xl w-full my-4 text-xs font-display font-bold text-maroon">
+                        <div class="p-3 bg-cream rounded-xl">💻 BUILDER</div>
+                        <div class="p-3 bg-softPink rounded-xl">🧠 DSA SOLVER</div>
+                        <div class="p-3 bg-cream rounded-xl">📚 STUDENT</div>
+                        <div class="p-3 bg-softPink rounded-xl">🏔️ TREKKER</div>
+                        <div class="p-3 bg-cream rounded-xl">🤿 SCUBA DIVER</div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <button id="replayGameBtn"
+                            class="px-8 py-4 bg-softPink text-maroon font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-cream transition-all flex items-center gap-2">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            <span>REPLAY GAME</span>
+                        </button>
+                        <a href="#projects"
+                            class="px-8 py-4 bg-cream text-maroon font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-softPink transition-all flex items-center gap-2">
+                            <span>EXPLORE MY PROJECTS</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Touch / Mouse Instruction Footer -->
+            <p class="text-xs text-cream/80 font-mono mt-4 flex items-center justify-center gap-2">
+                <i data-lucide="mouse-pointer-click" class="w-4 h-4 text-softPink"></i>
+                <span>Pull back on the avatar and aim! Once a target is hit, it disappears so you can focus on the
+                    rest.</span>
+            </p>
+        </div>
+
+    </section>
+
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
+
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span class="text-xs font-display font-bold tracking-widest uppercase text-maroon">02. FEATURED WORKS</span>
+            <h2 class="text-4xl sm:text-5xl font-serif font-black text-maroon">THINGS I'VE BUILT</h2>
+            <div class="w-16 h-1 bg-maroon mx-auto mt-2"></div>
+            <p class="text-charcoal/80 text-lg font-serif italic pt-2">
+                "Real web applications, utility tools, and core software projects."
+            </p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Project 1 -->
+            <div
+                class="bg-lightCream rounded-2xl border-2 border-maroon/20 p-6 flex flex-col justify-between hover:border-maroon transition-all shadow-lg group">
+                <div>
+                    <div class="h-48 rounded-xl bg-maroon/10 overflow-hidden mb-5 border border-maroon/10 relative">
+                        <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=800&q=80"
+                            alt="GitHub Developer Explorer"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <span
+                            class="absolute top-3 left-3 bg-maroon text-cream text-[10px] font-display font-bold uppercase tracking-wider px-2.5 py-1 rounded">01
+                            • API App</span>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-maroon mb-2">GitHub Developer Explorer</h3>
+                    <p class="text-charcoal/80 text-sm leading-relaxed mb-4">
+                        Developed a web application using fetch and async/await to search & explore GitHub user
+                        profiles, repositories, activity stats, and loading states.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-4 font-mono text-[11px]">
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">JavaScript</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">GitHub REST
+                            API</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">HTML & CSS</span>
+                    </div>
+                    <div class="flex items-center gap-4 pt-3 border-t border-maroon/10 text-xs font-display font-bold">
+                        <a href="https://github.com/disharai123a-oss/GitHub-Developer-Explorer-Multi-Endpoint-APis"
+                            target="_blank" class="text-maroon hover:underline flex items-center gap-1">
+                            <i class="fa-brands fa-github text-sm"></i> GitHub
+                        </a>
+                        <a href="https://git-hub-developer-explorer-multi-en.vercel.app/" target="_blank"
+                            class="text-maroon/70 hover:text-maroon flex items-center gap-1">
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div
+                class="bg-lightCream rounded-2xl border-2 border-maroon/20 p-6 flex flex-col justify-between hover:border-maroon transition-all shadow-lg group">
+                <div>
+                    <div class="h-48 rounded-xl bg-maroon/10 overflow-hidden mb-5 border border-maroon/10 relative">
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80"
+                            alt="Live News Feed"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <span
+                            class="absolute top-3 left-3 bg-maroon text-cream text-[10px] font-display font-bold uppercase tracking-wider px-2.5 py-1 rounded">02
+                            • News Portal</span>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-maroon mb-2">Live News Feed App</h3>
+                    <p class="text-charcoal/80 text-sm leading-relaxed mb-4">
+                        Built a real-time news platform using NewsAPI with category filtering, keyword search, error
+                        handling, and desktop/mobile responsive UI.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-4 font-mono text-[11px]">
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">JavaScript</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">NewsAPI</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">CSS3</span>
+                    </div>
+                    <div class="flex items-center gap-4 pt-3 border-t border-maroon/10 text-xs font-display font-bold">
+                        <a href="https://github.com/disharai123a-oss/Live-News-Feed-" target="_blank"
+                            class="text-maroon hover:underline flex items-center gap-1">
+                            <i class="fa-brands fa-github text-sm"></i> GitHub
+                        </a>
+                        <a href="https://live-news-feed-beta.vercel.app/" target="_blank"
+                            class="text-maroon/70 hover:text-maroon flex items-center gap-1">
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div
+                class="bg-lightCream rounded-2xl border-2 border-maroon/20 p-6 flex flex-col justify-between hover:border-maroon transition-all shadow-lg group">
+                <div>
+                    <div class="h-48 rounded-xl bg-maroon/10 overflow-hidden mb-5 border border-maroon/10 relative">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
+                            alt="Expense Tracker"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <span
+                            class="absolute top-3 left-3 bg-maroon text-cream text-[10px] font-display font-bold uppercase tracking-wider px-2.5 py-1 rounded">03
+                            • Utility</span>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-maroon mb-2">Smart Expense Tracker</h3>
+                    <p class="text-charcoal/80 text-sm leading-relaxed mb-4">
+                        Developed an interactive web application to manage daily expenses, featuring interactive forms,
+                        dynamic updates, and structured layout.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-4 font-mono text-[11px]">
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">JavaScript</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">DOM API</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">HTML & CSS</span>
+                    </div>
+                    <div class="flex items-center gap-4 pt-3 border-t border-maroon/10 text-xs font-display font-bold">
+                        <a href="https://github.com/disharai123a-oss/2nd-Sem-Project---Expense-Tracker" target="_blank"
+                            class="text-maroon hover:underline flex items-center gap-1">
+                            <i class="fa-brands fa-github text-sm"></i> GitHub
+                        </a>
+                        <a href="https://2nd-sem-project-expense-tracker.vercel.app/" target="_blank"
+                            class="text-maroon/70 hover:text-maroon flex items-center gap-1">
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div
+                class="bg-lightCream rounded-2xl border-2 border-maroon/20 p-6 flex flex-col justify-between hover:border-maroon transition-all shadow-lg group">
+                <div>
+                    <div class="h-48 rounded-xl bg-maroon/10 overflow-hidden mb-5 border border-maroon/10 relative">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80"
+                            alt="Kanban Board"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <span
+                            class="absolute top-3 left-3 bg-maroon text-cream text-[10px] font-display font-bold uppercase tracking-wider px-2.5 py-1 rounded">04
+                            • Productivity</span>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-maroon mb-2">Kanban Task Board</h3>
+                    <p class="text-charcoal/80 text-sm leading-relaxed mb-4">
+                        Designed a responsive task management board organizing workflow stages with enhanced usability,
+                        accessibility, and clear interface.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-4 font-mono text-[11px]">
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">JavaScript</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">HTML5</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">CSS3</span>
+                    </div>
+                    <div class="flex items-center gap-4 pt-3 border-t border-maroon/10 text-xs font-display font-bold">
+                        <a href="https://github.com/disharai123a-oss/kanban-board" target="_blank"
+                            class="text-maroon hover:underline flex items-center gap-1">
+                            <i class="fa-brands fa-github text-sm"></i> GitHub
+                        </a>
+                        <a href="https://kanban-board-pi-coral.vercel.app/" target="_blank"
+                            class="text-maroon/70 hover:text-maroon flex items-center gap-1">
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div
+                class="bg-lightCream rounded-2xl border-2 border-maroon/20 p-6 flex flex-col justify-between hover:border-maroon transition-all shadow-lg group">
+                <div>
+                    <div class="h-48 rounded-xl bg-maroon/10 overflow-hidden mb-5 border border-maroon/10 relative">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80"
+                            alt="Guesser Game"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <span
+                            class="absolute top-3 left-3 bg-maroon text-cream text-[10px] font-display font-bold uppercase tracking-wider px-2.5 py-1 rounded">05
+                            • Java OOPs</span>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-maroon mb-2">Guesser Game (Java)</h3>
+                    <p class="text-charcoal/80 text-sm leading-relaxed mb-4">
+                        Built a console-based number guessing game applying Object-Oriented Programming (OOP) concepts,
+                        input validation, and game logic.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-4 font-mono text-[11px]">
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">Java</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">OOPs Concepts</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">CLI Game</span>
+                    </div>
+                    <div class="flex items-center gap-4 pt-3 border-t border-maroon/10 text-xs font-display font-bold">
+                        <a href="https://github.com/disharai123a-oss/Guessergame.java" target="_blank"
+                            class="text-maroon hover:underline flex items-center gap-1">
+                            <i class="fa-brands fa-github text-sm"></i> GitHub Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div
+                class="bg-lightCream rounded-2xl border-2 border-maroon/20 p-6 flex flex-col justify-between hover:border-maroon transition-all shadow-lg group">
+                <div>
+                    <div class="h-48 rounded-xl bg-maroon/10 overflow-hidden mb-5 border border-maroon/10 relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                            alt="Team Agency Website"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <span
+                            class="absolute top-3 left-3 bg-maroon text-cream text-[10px] font-display font-bold uppercase tracking-wider px-2.5 py-1 rounded">06
+                            • Frontend</span>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-maroon mb-2">Team Agency Portfolio Website</h3>
+                    <p class="text-charcoal/80 text-sm leading-relaxed mb-4">
+                        Designed and developed a responsive agency portfolio website with versatile landing pages
+                        focusing on clean UI and responsiveness.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-4 font-mono text-[11px]">
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">HTML5</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">CSS3</span>
+                        <span class="px-2.5 py-1 bg-maroon/10 text-maroon rounded-md font-semibold">JavaScript</span>
+                    </div>
+                    <div class="flex items-center gap-4 pt-3 border-t border-maroon/10 text-xs font-display font-bold">
+                        <a href="https://github.com/disharai123a-oss/2nd-Sem-Project-...The-Team-Agency-Portfolio-"
+                            target="_blank" class="text-maroon hover:underline flex items-center gap-1">
+                            <i class="fa-brands fa-github text-sm"></i> GitHub
+                        </a>
+                        <a href="https://team-agency-portoflio.netlify.app/" target="_blank"
+                            class="text-maroon/70 hover:text-maroon flex items-center gap-1">
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="skills" class="py-24 bg-maroon text-cream relative">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-display font-bold tracking-widest uppercase text-softPink">SKILLS
+                    OVERVIEW</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-black text-cream">TECHNICAL TOOLBOX</h2>
+                <p class="font-script text-3xl text-softPink pt-2">"Constantly expanding my developer capabilities."</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Category 1 -->
+                <div
+                    class="bg-darkMaroon p-8 rounded-2xl border border-softPink/20 hover:border-softPink transition-all">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cream text-maroon flex items-center justify-center text-xl mb-6 shadow">
+                        <i data-lucide="code-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-cream mb-4">PROGRAMMING LANGUAGES</h3>
+                    <ul class="space-y-3 font-mono text-xs text-cream/90">
+                        <li class="flex items-center justify-between pb-2 border-b border-cream/10">
+                            <span>Java</span> <span class="text-softPink font-bold">Advanced</span>
+                        </li>
+                        <li class="flex items-center justify-between pb-2 border-b border-cream/10">
+                            <span>JavaScript (ES6+)</span> <span class="text-softPink font-bold">Intermediate</span>
+                        </li>
+                        <li class="flex items-center justify-between pb-2 border-b border-cream/10">
+                            <span>C++</span> <span class="text-softPink font-bold">Intermediate</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>C</span> <span class="text-softPink font-bold">Foundational</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 2 -->
+                <div
+                    class="bg-darkMaroon p-8 rounded-2xl border border-softPink/20 hover:border-softPink transition-all">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cream text-maroon flex items-center justify-center text-xl mb-6 shadow">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-cream mb-4">WEB & BACKEND</h3>
+                    <ul class="space-y-3 font-mono text-xs text-cream/90">
+                        <li class="flex items-center justify-between pb-2 border-b border-cream/10">
+                            <span>HTML5 & CSS3</span> <span class="text-softPink font-bold">Advanced</span>
+                        </li>
+                        <li class="flex items-center justify-between pb-2 border-b border-cream/10">
+                            <span>Tailwind CSS & Bootstrap</span> <span
+                                class="text-softPink font-bold">Intermediate</span>
+                        </li>
+                        <li class="flex items-center justify-between pb-2 border-b border-cream/10">
+                            <span>RESTful APIs</span> <span class="text-softPink font-bold">Intermediate</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Spring Boot Framework</span> <span class="text-softPink font-bold">Learning ⚡</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 3 -->
+                <div
+                    class="bg-darkMaroon p-8 rounded-2xl border border-softPink/20 hover:border-softPink transition-all">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cream text-maroon flex items-center justify-center text-xl mb-6 shadow">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-cream mb-4">DATABASES & TOOLS</h3>
+                    <ul class="space-y-3 font-mono text-xs text-cream/90">
+                        <li class="flex items-center justify-between pb-2 border-b border-cream/10">
+                            <span>MySQL & SQL Queries</span> <span class="text-softPink font-bold">Intermediate</span>
+                        </li>
+                        <li class="flex items-center justify-between pb-2 border-b border-cream/10">
+                            <span>JDBC Connection</span> <span class="text-softPink font-bold">Intermediate</span>
+                        </li>
+                        <li class="flex items-center justify-between pb-2 border-b border-cream/10">
+                            <span>Git & GitHub</span> <span class="text-softPink font-bold">Advanced</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>VS Code & DevTools</span> <span class="text-softPink font-bold">Daily Tools</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="resume" class="py-24 px-6 max-w-5xl mx-auto text-center">
+
+        <div class="bg-lightCream p-10 sm:p-16 rounded-3xl border-4 border-maroon shadow-2xl relative">
+            <div class="paper-tape"></div>
+
+            <span class="text-xs font-display font-bold tracking-widest uppercase text-maroon">OFFICIAL RECORD</span>
+            <h2 class="text-4xl sm:text-5xl font-serif font-black text-maroon my-3">THE FORMAL VERSION</h2>
+            <p class="font-script text-3xl text-maroon/80 mb-8">
+                "For recruiters, hiring managers & engineering teams 📄"
+            </p>
+
+            <div
+                class="bg-cream p-6 sm:p-8 rounded-2xl max-w-xl mx-auto mb-8 border border-maroon/20 text-left space-y-4 shadow-inner">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-maroon text-cream flex items-center justify-center text-2xl flex-shrink-0">
+                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-maroon text-lg">PW Institute of Innovation</h4>
+                        <p class="text-xs text-charcoal/80 font-mono font-semibold">B.Tech in Computer Science &
+                            Engineering</p>
+                        <p class="text-xs text-maroon font-bold font-mono">Second Year • Expected Graduation: 2029</p>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="pt-3 border-t border-maroon/10 space-y-2">
+                    <span class="text-xs font-display font-bold uppercase text-maroon block">🏆 CERTIFICATIONS (IBM
+                        SKILLSBUILD)</span>
+                    <div class="flex flex-wrap gap-2 text-[11px] font-mono text-maroon">
+                        <span class="px-3 py-1 bg-maroon/10 rounded-lg font-semibold flex items-center gap-1.5"><i
+                                data-lucide="award" class="w-3.5 h-3.5 text-maroon"></i> HTML, CSS & JavaScript</span>
+                        <span class="px-3 py-1 bg-maroon/10 rounded-lg font-semibold flex items-center gap-1.5"><i
+                                data-lucide="award" class="w-3.5 h-3.5 text-maroon"></i> Advanced JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Languages Spoken -->
+                <div class="pt-2 border-t border-maroon/10 flex items-center gap-2 text-xs font-mono text-charcoal/80">
+                    <span class="font-bold text-maroon">🗣️ Languages:</span> English, Hindi
+                </div>
+            </div>
+
+            <!-- Profile Links & Resume Downloads -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <a id="viewResumeBtn" href="./disha-cv.pdf" target="_blank"
+                    class="px-8 py-4 bg-maroon text-cream font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-darkMaroon transition-all flex items-center gap-2">
+                    <i data-lucide="eye" class="w-4 h-4"></i>
+                    VIEW RESUME
+                </a>
+
+                <a id="downloadResumeBtn" href="./disha-cv.pdf" download="Disha_Rai_Resume.pdf"
+                    class="px-8 py-4 bg-cream text-maroon border-2 border-maroon font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-maroon hover:text-cream transition-all flex items-center gap-2">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    DOWNLOAD RESUME (PDF)
+                </a>
+            </div>
+
+            <div
+                class="mt-8 pt-6 border-t border-maroon/10 flex justify-center flex-wrap gap-6 text-xs font-display font-bold text-maroon">
+                <a href="https://leetcode.com/u/disharai123a" target="_blank"
+                    class="hover:underline flex items-center gap-1.5">
+                    <i data-lucide="code" class="w-4 h-4"></i> LeetCode Profile
+                </a>
+                <a href="https://geeksforgeeks.org/profile/disharai01" target="_blank"
+                    class="hover:underline flex items-center gap-1.5">
+                    <i data-lucide="terminal" class="w-4 h-4"></i> GeeksforGeeks Profile
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="py-24 px-6 max-w-6xl mx-auto">
+
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+            <span class="text-xs font-display font-bold tracking-widest uppercase text-maroon">OFF-DUTY LIFE</span>
+            <h2 class="text-4xl sm:text-5xl font-serif font-black text-maroon">WHEN I'M NOT CODING...</h2>
+            <p class="text-charcoal/80 text-base font-serif italic">
+                "Balancing technology with real-world adventure and creative expression."
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-20">
+            <div
+                class="bg-lightCream p-6 rounded-2xl text-center border border-maroon/20 hover:scale-105 transition-transform shadow">
+                <span class="text-4xl block mb-2">🏊</span>
+                <h4 class="font-serif font-bold text-maroon">Swimming</h4>
+                <p class="text-xs text-charcoal/70 font-script text-lg">water lover 💧</p>
+            </div>
+            <div
+                class="bg-lightCream p-6 rounded-2xl text-center border border-maroon/20 hover:scale-105 transition-transform shadow">
+                <span class="text-4xl block mb-2">💃</span>
+                <h4 class="font-serif font-bold text-maroon">Dancing</h4>
+                <p class="text-xs text-charcoal/70 font-script text-lg">rhythm & energy ✨</p>
+            </div>
+            <div
+                class="bg-lightCream p-6 rounded-2xl text-center border border-maroon/20 hover:scale-105 transition-transform shadow">
+                <span class="text-4xl block mb-2">🏔️</span>
+                <h4 class="font-serif font-bold text-maroon">Trekking</h4>
+                <p class="text-xs text-charcoal/70 font-script text-lg">mountain trails 🌲</p>
+            </div>
+            <div
+                class="bg-lightCream p-6 rounded-2xl text-center border border-maroon/20 hover:scale-105 transition-transform shadow">
+                <span class="text-4xl block mb-2">🤿</span>
+                <h4 class="font-serif font-bold text-maroon">Scuba Diving</h4>
+                <p class="text-xs text-charcoal/70 font-script text-lg">dream goal 🐠</p>
+            </div>
+        </div>
+
+        <!-- Dedicated Card to Mom -->
+        <div
+            class="bg-lightCream p-8 sm:p-14 rounded-3xl border-2 border-maroon shadow-2xl relative text-center max-w-4xl mx-auto">
+            <div class="paper-tape"></div>
+            <span class="text-xs font-display font-bold tracking-widest uppercase text-maroon">THE DRIVING FORCE</span>
+            <h3 class="text-3xl sm:text-4xl font-serif font-black text-maroon my-3">WHY I KEEP GOING ♡</h3>
+
+            <p class="text-charcoal/90 font-serif text-base sm:text-lg leading-relaxed max-w-2xl mx-auto pt-2">
+                "Behind many of the opportunities I have today is my mother. She has worked hard, sacrificed a lot, and
+                always supported my ambition to move forward. Every line of code I write and every challenge I conquer
+                is to make her proud."
+            </p>
+
+            <p class="font-script text-3xl text-maroon pt-4">
+                "Her sacrifices are the foundation of everything I build."
+            </p>
+        </div>
+
+    </section>
+
+    <section id="contact" class="py-24 bg-maroon text-cream relative">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+                <!-- Left Info Panel -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-display font-bold tracking-widest uppercase text-softPink">GET IN
+                        TOUCH</span>
+                    <h2 class="text-4xl sm:text-5xl font-serif font-black text-cream">LET'S CONNECT</h2>
+                    <p class="text-cream/80 text-base font-serif italic">
+                        "Have a project idea, internship opportunity, or just want to chat tech? Drop me a message!"
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <a href="mailto:disharai123a@gmail.com"
+                            class="bg-darkMaroon p-4 rounded-xl flex items-center gap-4 border border-softPink/20 hover:border-softPink transition-colors block">
+                            <i data-lucide="mail" class="w-6 h-6 text-softPink flex-shrink-0"></i>
+                            <div>
+                                <div class="text-[10px] font-display font-bold uppercase text-softPink">Email</div>
+                                <div class="font-mono text-xs sm:text-sm font-bold text-cream">disharai123a@gmail.com
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="tel:+918817311297"
+                            class="bg-darkMaroon p-4 rounded-xl flex items-center gap-4 border border-softPink/20 hover:border-softPink transition-colors block">
+                            <i data-lucide="phone" class="w-6 h-6 text-softPink flex-shrink-0"></i>
+                            <div>
+                                <div class="text-[10px] font-display font-bold uppercase text-softPink">Phone</div>
+                                <div class="font-mono text-xs sm:text-sm font-bold text-cream">+91 8817311297</div>
+                            </div>
+                        </a>
+
+                        <a href="https://linkedin.com/in/disha-rai-59030b312" target="_blank"
+                            class="bg-darkMaroon p-4 rounded-xl flex items-center gap-4 border border-softPink/20 hover:border-softPink transition-colors block">
+                            <i class="fa-brands fa-linkedin text-2xl text-softPink flex-shrink-0"></i>
+                            <div>
+                                <div class="text-[10px] font-display font-bold uppercase text-softPink">LinkedIn</div>
+                                <div class="font-mono text-xs sm:text-sm font-bold text-cream">disha-rai-59030b312</div>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/disharai123a-oss" target="_blank"
+                            class="bg-darkMaroon p-4 rounded-xl flex items-center gap-4 border border-softPink/20 hover:border-softPink transition-colors block">
+                            <i class="fa-brands fa-github text-2xl text-softPink flex-shrink-0"></i>
+                            <div>
+                                <div class="text-[10px] font-display font-bold uppercase text-softPink">GitHub</div>
+                                <div class="font-mono text-xs sm:text-sm font-bold text-cream">disharai123a-oss</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Contact Form -->
+                <div class="lg:col-span-7">
+                    <form id="contactForm"
+                        class="bg-lightCream p-8 sm:p-10 rounded-3xl text-charcoal shadow-2xl space-y-4 border-2 border-maroon">
+                        <h3 class="text-2xl sm:text-3xl font-serif font-bold text-maroon">Send a Message</h3>
+
+                        <div>
+                            <label class="block text-xs font-display font-bold uppercase mb-1 text-maroon">Your
+                                Name</label>
+                            <input type="text" required
+                                class="w-full px-4 py-3 rounded-xl bg-cream border border-maroon/20 focus:outline-none focus:border-maroon font-sans text-sm text-charcoal"
+                                placeholder="e.g. Alex Smith" />
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-display font-bold uppercase mb-1 text-maroon">Your
+                                Email</label>
+                            <input type="email" required
+                                class="w-full px-4 py-3 rounded-xl bg-cream border border-maroon/20 focus:outline-none focus:border-maroon font-sans text-sm text-charcoal"
+                                placeholder="alex@example.com" />
+                        </div>
+
+                        <div>
+                            <label
+                                class="block text-xs font-display font-bold uppercase mb-1 text-maroon">Message</label>
+                            <textarea rows="4" required
+                                class="w-full px-4 py-3 rounded-xl bg-cream border border-maroon/20 focus:outline-none focus:border-maroon font-sans text-sm text-charcoal"
+                                placeholder="Hello Disha, I'd like to discuss..."></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full py-4 bg-maroon text-cream font-display font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-darkMaroon transition-all shadow-lg flex items-center justify-center gap-2">
+                            <span>SEND MESSAGE</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+
+                        <div id="formMsg"
+                            class="hidden p-3 bg-emerald-100 text-emerald-800 rounded-lg text-center text-xs font-bold">
+                            ✓ Thank you! Your message has been sent successfully.
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-darkMaroon text-cream/70 text-center text-xs border-t border-cream/10 space-y-2">
+        <p class="font-script text-2xl text-softPink">
+            "Code • Create • Explore • Repeat."
+        </p>
+        <p class="font-mono">
+            Built with curiosity, caffeine & questionable amounts of debugging. Disha Rai © 2026.
+        </p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        /* Mobile Navigation Toggle */
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu) mobileMenu.classList.add('hidden');
+            });
+        });
+
+        /* Contact Form Submission Handler */
+        const contactForm = document.getElementById('contactForm');
+        const formMsg = document.getElementById('formMsg');
+        if (contactForm && formMsg) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formMsg.classList.remove('hidden');
+                contactForm.reset();
+                setTimeout(() => {
+                    formMsg.classList.add('hidden');
+                }, 4000);
+            });
+        }
+
+        /* Resume Toast Notification */
+        const viewResumeBtn = document.getElementById('viewResumeBtn');
+        const downloadResumeBtn = document.getElementById('downloadResumeBtn');
+
+        const notifyResume = () => {
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-5 right-5 bg-maroon text-cream px-6 py-3 rounded-xl font-display font-bold text-xs shadow-2xl z-50 animate-bounce flex items-center gap-2 border border-softPink';
+            notification.innerHTML = '<span>📄 Disha_Rai_Resume.pdf loaded successfully!</span>';
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3200);
+        };
+
+        if (viewResumeBtn) viewResumeBtn.addEventListener('click', notifyResume);
+        if (downloadResumeBtn) downloadResumeBtn.addEventListener('click', notifyResume);
+
+        /* -------------------------------------------------------------
+           PHYSICS MINI-GAME ENGINE: DISHA WORLD (TARGET ELIMINATION SYSTEM)
+           ------------------------------------------------------------- */
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const levelNameEl = document.getElementById('levelName');
+        const targetsLeftValEl = document.getElementById('targetsLeftVal');
+        const missesValEl = document.getElementById('missesVal');
+        const scoreValEl = document.getElementById('scoreVal');
+        const resetLevelBtn = document.getElementById('resetLevelBtn');
+        const gameOverlay = document.getElementById('gameOverlay');
+        const overlayTitle = document.getElementById('overlayTitle');
+        const overlayDesc = document.getElementById('overlayDesc');
+        const startGameBtn = document.getElementById('startGameBtn');
+        const victoryOverlay = document.getElementById('victoryOverlay');
+        const replayGameBtn = document.getElementById('replayGameBtn');
+
+        // Dynamic Resolution Sizing
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            const w = rect.width || 800;
+            const h = rect.height || (w * 9 / 16);
+            canvas.width = Math.floor(w);
+            canvas.height = Math.floor(h);
+        }
+
+        // Game State Variables
+        let currentLevel = 1;
+        let misses = 0;
+        let score = 0;
+        let isDragging = false;
+        let characterLaunched = false;
+        let shotHit = false;
+        let shotResolved = false;
+        let levelTransitioning = false;
+        let resetTimer = null;
+
+        // Visual FX arrays
+        let particles = [];
+        let floatingTexts = [];
+
+        // Launcher Base Position
+        const slingshot = {
+            x: 120,
+            anchorY: 0
+        };
+
+        // Player Avatar Object
+        const player = {
+            x: 120,
+            y: 0,
+            vx: 0,
+            vy: 0,
+            radius: 18,
+            color: '#E8C5C8'
+        };
+
+        let targets = [];
+
+        // 5 Level Specifications (Each with distinct obstacle targets)
+        const levels = [
+            {
+                level: 1,
+                name: "LEVEL 1: CODING DESK 💻",
+                desc: "Target the software bugs! Knock out each target to clear your codebase.",
+                themeBg: "#1A1A1A",
+                targets: [
+                    { x: 0.68, y: 0.60, w: 40, h: 40, label: "🐛" },
+                    { x: 0.82, y: 0.70, w: 44, h: 44, label: "💻" },
+                    { x: 0.75, y: 0.38, w: 38, h: 38, label: "🐛" }
+                ]
+            },
+            {
+                level: 2,
+                name: "LEVEL 2: DSA WORLD 🧠",
+                desc: "Smash through algorithm obstacles (404, BST & Stack) to pass Level 2!",
+                themeBg: "#220C0C",
+                targets: [
+                    { x: 0.65, y: 0.68, w: 46, h: 40, label: "404" },
+                    { x: 0.80, y: 0.68, w: 54, h: 40, label: "STACK" },
+                    { x: 0.72, y: 0.42, w: 46, h: 40, label: "BST" }
+                ]
+            },
+            {
+                level: 3,
+                name: "LEVEL 3: COLLEGE CLASSROOM 📚",
+                desc: "Eliminate classroom backbench distractions and hit 75% attendance!",
+                themeBg: "#121A24",
+                targets: [
+                    { x: 0.66, y: 0.64, w: 44, h: 44, label: "📚" },
+                    { x: 0.82, y: 0.64, w: 44, h: 44, label: "🏫" },
+                    { x: 0.74, y: 0.40, w: 48, h: 44, label: "75%" }
+                ]
+            },
+            {
+                level: 4,
+                name: "LEVEL 4: MOUNTAIN TREKKING 🏔️",
+                desc: "Mountain trails unlocked! Launch across peaks and clear all 3 nature markers.",
+                themeBg: "#122416",
+                targets: [
+                    { x: 0.65, y: 0.58, w: 50, h: 50, label: "🏔️" },
+                    { x: 0.82, y: 0.58, w: 50, h: 50, label: "🌊" },
+                    { x: 0.73, y: 0.34, w: 44, h: 44, label: "🌲" }
+                ]
+            },
+            {
+                level: 5,
+                name: "LEVEL 5: SCUBA DREAM 🤿",
+                desc: "Underwater mission! Knock out deep sea obstacles to achieve Disha World Mastery.",
+                themeBg: "#0B1D28",
+                targets: [
+                    { x: 0.64, y: 0.62, w: 46, h: 46, label: "🐠" },
+                    { x: 0.76, y: 0.62, w: 46, h: 46, label: "🤿" },
+                    { x: 0.86, y: 0.62, w: 46, h: 46, label: "🪸" }
+                ]
+            }
+        ];
+
+        // Reset player avatar back to slingshot rest position
+        function resetPlayerToSlingshot() {
+            characterLaunched = false;
+            isDragging = false;
+            shotHit = false;
+            shotResolved = false;
+            player.x = slingshot.x;
+            player.y = slingshot.anchorY;
+            player.vx = 0;
+            player.vy = 0;
+            if (resetTimer) {
+                clearTimeout(resetTimer);
+                resetTimer = null;
+            }
+        }
+
+        function initLevel(lvlIdx) {
+            levelTransitioning = false;
+            const lvl = levels[lvlIdx - 1];
+            if (levelNameEl) levelNameEl.innerText = lvl.name;
+
+            slingshot.x = canvas.width * 0.16;
+            slingshot.anchorY = canvas.height * 0.68;
+
+            resetPlayerToSlingshot();
+
+            // Build fresh targets for this level
+            targets = lvl.targets.map((t, idx) => ({
+                baseX: canvas.width * t.x,
+                baseY: canvas.height * t.y,
+                x: canvas.width * t.x,
+                y: canvas.height * t.y,
+                w: t.w,
+                h: t.h,
+                label: t.label,
+                hit: false,
+                offset: idx * 1.5
+            }));
+
+            updateUI();
+            particles = [];
+            floatingTexts = [];
+        }
+
+        function updateUI() {
+            const remaining = targets.filter(t => !t.hit).length;
+            if (targetsLeftValEl) targetsLeftValEl.innerText = `${remaining} / ${targets.length}`;
+            if (missesValEl) missesValEl.innerText = misses;
+            if (scoreValEl) scoreValEl.innerText = score;
+        }
+
+        // Particle & Floating Text helpers
+        function spawnHitParticles(x, y) {
+            for (let i = 0; i < 20; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 2 + Math.random() * 6;
+                particles.push({
+                    x,
+                    y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed - 1.5,
+                    size: 3 + Math.random() * 4,
+                    color: i % 2 === 0 ? '#E9C46A' : '#FAF6F0',
+                    life: 1,
+                    decay: 0.035 + Math.random() * 0.02
+                });
+            }
+        }
+
+        function addFloatingText(text, x, y, color) {
+            floatingTexts.push({
+                text,
+                x,
+                y,
+                color: color || '#FAF6F0',
+                alpha: 1,
+                vy: -1.2
+            });
+        }
+
+        // Pointer Event Handlers
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            let clientX = e.clientX;
+            let clientY = e.clientY;
+
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            }
+
+            return {
+                x: (clientX - rect.left) * (canvas.width / rect.width),
+                y: (clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+
+        function onPointerDown(e) {
+            if (characterLaunched || levelTransitioning) return;
+            const pos = getPos(e);
+            const dist = Math.hypot(pos.x - player.x, pos.y - player.y);
+            if (dist < 60) {
+                if (e.cancelable) e.preventDefault();
+                isDragging = true;
+            }
+        }
+
+        function onPointerMove(e) {
+            if (!isDragging) return;
+            if (e.cancelable) e.preventDefault();
+            const pos = getPos(e);
+            const maxDrag = 95;
+            const dx = pos.x - slingshot.x;
+            const dy = pos.y - slingshot.anchorY;
+            const angle = Math.atan2(dy, dx);
+            const dist = Math.min(Math.hypot(dx, dy), maxDrag);
+
+            player.x = slingshot.x + Math.cos(angle) * dist;
+            player.y = slingshot.anchorY + Math.sin(angle) * dist;
+        }
+
+        function onPointerUp() {
+            if (!isDragging) return;
+            isDragging = false;
+
+            const dx = slingshot.x - player.x;
+            const dy = slingshot.anchorY - player.y;
+
+            // Small tap cancellation: do not launch if not pulled back
+            if (Math.hypot(dx, dy) < 14) {
+                player.x = slingshot.x;
+                player.y = slingshot.anchorY;
+                return;
+            }
+
+            characterLaunched = true;
+            shotHit = false;
+            shotResolved = false;
+
+            player.vx = dx * 0.24;
+            player.vy = dy * 0.24;
+
+            // Failsafe timeout in case avatar stays in flight too long
+            resetTimer = setTimeout(() => {
+                finishShot();
+            }, 5500);
+        }
+
+        // Resolves the current shot: registers miss or triggers next round/level
+        function finishShot() {
+            if (!characterLaunched || shotResolved) return;
+            shotResolved = true;
+
+            if (resetTimer) {
+                clearTimeout(resetTimer);
+                resetTimer = null;
+            }
+
+            if (!shotHit) {
+                // Counted as a MISS
+                misses++;
+                updateUI();
+                addFloatingText("MISS! ❌", Math.min(Math.max(player.x, 90), canvas.width - 90), Math.min(player.y, canvas.height * 0.8), "#E8C5C8");
+            }
+
+            const remaining = targets.filter(t => !t.hit).length;
+
+            setTimeout(() => {
+                if (remaining === 0) {
+                    // All targets in this level eliminated!
+                    levelTransitioning = true;
+                    characterLaunched = false;
+                    addFloatingText(`🎉 ALL TARGETS DESTROYED!`, canvas.width / 2, canvas.height * 0.45, "#E9C46A");
+
+                    setTimeout(() => {
+                        if (currentLevel < 5) {
+                            currentLevel++;
+                            overlayTitle.innerText = `LEVEL ${currentLevel} UNLOCKED!`;
+                            overlayDesc.innerText = levels[currentLevel - 1].desc;
+                            startGameBtn.innerHTML = `<span>START LEVEL ${currentLevel}</span><i data-lucide="play" class="w-4 h-4"></i>`;
+                            lucide.createIcons();
+                            gameOverlay.classList.remove('hidden');
+                        } else {
+                            victoryOverlay.classList.remove('hidden');
+                        }
+                    }, 850);
+                } else {
+                    // Keep remaining targets intact, reset player to slingshot for next shot
+                    resetPlayerToSlingshot();
+                }
+            }, 600);
+        }
+
+        // Event Listeners for Controls
+        canvas.addEventListener('mousedown', onPointerDown);
+        window.addEventListener('mousemove', onPointerMove);
+        window.addEventListener('mouseup', onPointerUp);
+
+        canvas.addEventListener('touchstart', onPointerDown, { passive: false });
+        window.addEventListener('touchmove', onPointerMove, { passive: false });
+        window.addEventListener('touchend', onPointerUp);
+
+        if (resetLevelBtn) {
+            resetLevelBtn.addEventListener('click', () => {
+                initLevel(currentLevel);
+            });
+        }
+
+        if (startGameBtn) {
+            startGameBtn.addEventListener('click', () => {
+                gameOverlay.classList.add('hidden');
+                resizeCanvas();
+                initLevel(currentLevel);
+            });
+        }
+
+        if (replayGameBtn) {
+            replayGameBtn.addEventListener('click', () => {
+                victoryOverlay.classList.add('hidden');
+                currentLevel = 1;
+                score = 0;
+                misses = 0;
+                overlayTitle.innerText = "DISHA WORLD LAUNCHER";
+                overlayDesc.innerText = levels[0].desc;
+                startGameBtn.innerHTML = '<span>START LEVEL 1</span><i data-lucide="play" class="w-4 h-4"></i>';
+                lucide.createIcons();
+                gameOverlay.classList.remove('hidden');
+                resizeCanvas();
+                initLevel(1);
+            });
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            if (!characterLaunched) {
+                initLevel(currentLevel);
+            }
+        });
+
+        // Physics Updates & Collisions
+        function updatePhysics() {
+            const time = Date.now() * 0.003;
+
+            // Idle floating animation on living targets
+            targets.forEach(t => {
+                if (!t.hit) {
+                    t.y = t.baseY + Math.sin(time + t.offset) * 5;
+                }
+            });
+
+            if (characterLaunched && !shotResolved) {
+                player.x += player.vx;
+                player.y += player.vy;
+                player.vy += 0.45; // Gravity acceleration
+
+                const floorY = canvas.height * 0.85 - player.radius;
+
+                // Ground Collision
+                if (player.y >= floorY) {
+                    player.y = floorY;
+                    player.vx *= 0.65;
+                    player.vy = -player.vy * 0.35;
+
+                    // If rolled to a near stop on ground, finalize shot
+                    if (Math.abs(player.vx) < 0.45 && Math.abs(player.vy) < 0.45) {
+                        finishShot();
+                    }
+                }
+
+                // Off-screen Boundaries
+                if (player.x > canvas.width + 100 || player.x < -60 || player.y > canvas.height + 100) {
+                    finishShot();
+                }
+
+                // Target Collision
+                targets.forEach(t => {
+                    if (!t.hit) {
+                        if (
+                            player.x + player.radius > t.x - t.w / 2 &&
+                            player.x - player.radius < t.x + t.w / 2 &&
+                            player.y + player.radius > t.y - t.h / 2 &&
+                            player.y - player.radius < t.y + t.h / 2
+                        ) {
+                            // Target is hit and permanently disappears for this level!
+                            t.hit = true;
+                            shotHit = true;
+                            score += 150;
+                            updateUI();
+
+                            spawnHitParticles(t.x, t.y);
+                            addFloatingText(`💥 DESTROYED! +150 XP`, t.x, t.y - 25, '#E9C46A');
+
+                            // Knock avatar slightly on impact
+                            player.vx *= 0.35;
+                            player.vy = -2.2;
+
+                            // Allow brief follow-through momentum then conclude shot
+                            setTimeout(() => {
+                                finishShot();
+                            }, 450);
+                        }
+                    }
+                });
+            }
+
+            // Update Particle FX
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.15;
+                p.life -= p.decay;
+                if (p.life <= 0) particles.splice(i, 1);
+            }
+
+            // Update Floating Texts
+            for (let i = floatingTexts.length - 1; i >= 0; i--) {
+                const ft = floatingTexts[i];
+                ft.y += ft.vy;
+                ft.alpha -= 0.018;
+                if (ft.alpha <= 0) floatingTexts.splice(i, 1);
+            }
+        }
+
+        // Render Frame Animation Loop
+        function drawFrame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const lvlTheme = levels[currentLevel - 1]?.themeBg || "#1A1A1A";
+            ctx.fillStyle = lvlTheme;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Floor Base
+            ctx.fillStyle = "#520C0C";
+            ctx.fillRect(0, canvas.height * 0.85, canvas.width, canvas.height * 0.15);
+
+            // Slingshot Post
+            ctx.strokeStyle = "#D4A373";
+            ctx.lineWidth = 6;
+            ctx.beginPath();
+            ctx.moveTo(slingshot.x, canvas.height * 0.85);
+            ctx.lineTo(slingshot.x, slingshot.anchorY);
+            ctx.stroke();
+
+            // Slingshot Fork
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(slingshot.x - 12, slingshot.anchorY - 10);
+            ctx.lineTo(slingshot.x, slingshot.anchorY);
+            ctx.lineTo(slingshot.x + 12, slingshot.anchorY - 10);
+            ctx.stroke();
+
+            // Elastic Bands & Aiming Trajectory Indicator
+            if (isDragging) {
+                ctx.strokeStyle = "#E8C5C8";
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(slingshot.x - 12, slingshot.anchorY - 10);
+                ctx.lineTo(player.x, player.y);
+                ctx.lineTo(slingshot.x + 12, slingshot.anchorY - 10);
+                ctx.stroke();
+
+                // Trajectory Arc Line
+                const simVx = (slingshot.x - player.x) * 0.24;
+                const simVy = (slingshot.anchorY - player.y) * 0.24;
+                ctx.beginPath();
+                ctx.setLineDash([4, 6]);
+                ctx.strokeStyle = "rgba(233, 196, 106, 0.75)";
+                let simX = player.x;
+                let simY = player.y;
+                let currVy = simVy;
+                for (let i = 0; i < 22; i++) {
+                    simX += simVx;
+                    simY += currVy;
+                    currVy += 0.45;
+                    ctx.lineTo(simX, simY);
+                }
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+
+            // Draw Only UNHIT Targets (Hit targets disappear immediately!)
+            targets.forEach(t => {
+                if (!t.hit) {
+                    ctx.save();
+                    ctx.translate(t.x, t.y);
+
+                    ctx.fillStyle = "#FAF6F0";
+                    ctx.beginPath();
+                    if (ctx.roundRect) {
+                        ctx.roundRect(-t.w / 2, -t.h / 2, t.w, t.h, 8);
+                    } else {
+                        ctx.rect(-t.w / 2, -t.h / 2, t.w, t.h);
+                    }
+                    ctx.fill();
+                    ctx.strokeStyle = "#520C0C";
+                    ctx.lineWidth = 2.5;
+                    ctx.stroke();
+
+                    const fontSize = t.label.length > 3 ? 12 : 18;
+                    ctx.font = `bold ${fontSize}px sans-serif`;
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillStyle = "#1A1A1A";
+                    ctx.fillText(t.label, 0, 0);
+
+                    ctx.restore();
+                }
+            });
+
+            // Draw Player Avatar Circle
+            ctx.fillStyle = player.color;
+            ctx.beginPath();
+            ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = "#520C0C";
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Avatar Face Features
+            ctx.fillStyle = "#520C0C";
+            ctx.beginPath();
+            ctx.arc(player.x - 5, player.y - 3, 2.5, 0, Math.PI * 2);
+            ctx.arc(player.x + 5, player.y - 3, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Smile
+            ctx.beginPath();
+            ctx.arc(player.x, player.y + 2, 6, 0.1, Math.PI - 0.1);
+            ctx.strokeStyle = "#520C0C";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Particles Rendering
+            particles.forEach(p => {
+                ctx.globalAlpha = Math.max(p.life, 0);
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            ctx.globalAlpha = 1;
+
+            // Floating Texts Rendering
+            floatingTexts.forEach(ft => {
+                ctx.save();
+                ctx.globalAlpha = Math.max(ft.alpha, 0);
+                ctx.font = "bold 15px sans-serif";
+                ctx.textAlign = "center";
+                ctx.fillStyle = ft.color;
+                ctx.fillText(ft.text, ft.x, ft.y);
+                ctx.restore();
+            });
+
+            // On-Canvas Target Counter Header
+            const remaining = targets.filter(t => !t.hit).length;
+            ctx.font = "bold 12px sans-serif";
+            ctx.fillStyle = "rgba(250, 246, 240, 0.85)";
+            ctx.textAlign = "center";
+            ctx.fillText(`TARGETS REMAINING: ${remaining} / ${targets.length}`, canvas.width / 2, 28);
+
+            updatePhysics();
+            requestAnimationFrame(drawFrame);
+        }
+
+        // Start Game Loop on Load
+        window.addEventListener('load', () => {
+            resizeCanvas();
+            initLevel(1);
+            requestAnimationFrame(drawFrame);
+        });
+    </script>
+</body>
+
+</html>
