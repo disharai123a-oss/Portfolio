@@ -304,7 +304,7 @@
                 GAME</span>
             <h2 class="text-4xl sm:text-5xl font-serif font-black text-maroon">DISHA WORLD 🎮</h2>
             <p class="font-script text-3xl text-maroon/80">
-                "Drag back on the slingshot launcher to clear the obstacles!"
+                "Hit each target to eliminate it. Clear all targets to complete the level!"
             </p>
         </div>
 
@@ -313,14 +313,26 @@
 
             <!-- Game Top Header Bar -->
             <div
-                class="flex flex-wrap justify-between items-center bg-darkMaroon text-cream px-5 py-3 rounded-2xl mb-4 text-xs sm:text-sm font-mono">
+                class="flex flex-wrap justify-between items-center bg-darkMaroon text-cream px-5 py-3 rounded-2xl mb-4 text-xs sm:text-sm font-mono gap-3">
                 <div class="flex items-center gap-2">
                     <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
                     <span class="text-softPink font-bold text-sm tracking-wider" id="levelName">LEVEL 1: CODING
                         DESK</span>
                 </div>
-                <div class="flex items-center gap-6">
-                    <span>XP SCORE: <strong id="scoreVal" class="text-goldBright text-base">0</strong></span>
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                    <div
+                        class="flex items-center gap-1.5 bg-maroon/50 px-3 py-1 rounded-lg border border-emerald-400/30">
+                        <span class="text-cream/80">🎯 REMAINING:</span>
+                        <strong id="targetsLeftVal" class="text-emerald-400 font-bold text-sm sm:text-base">3 /
+                            3</strong>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-maroon/50 px-3 py-1 rounded-lg border border-softPink/30">
+                        <span class="text-cream/80">❌ MISSES:</span>
+                        <strong id="missesVal" class="text-softPink font-bold text-sm sm:text-base">0</strong>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span>XP:</span> <strong id="scoreVal" class="text-goldBright text-base">0</strong>
+                    </div>
                     <button id="resetLevelBtn"
                         class="px-3 py-1 bg-cream text-maroon rounded-lg hover:bg-softPink transition-colors text-xs font-display font-bold uppercase flex items-center gap-1">
                         <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset
@@ -341,8 +353,8 @@
                         DISHA WORLD LAUNCHER
                     </h3>
                     <p id="overlayDesc" class="text-cream/80 text-sm sm:text-base max-w-md font-sans">
-                        Drag back on the slingshot player avatar to launch Disha across the stage. Target the bugs and
-                        complete all 5 levels!
+                        Drag back on the slingshot player avatar to launch Disha across the stage. Strike each target to
+                        eliminate it!
                     </p>
                     <button id="startGameBtn"
                         class="px-8 py-3.5 bg-maroon text-cream font-display font-bold rounded-full uppercase tracking-widest text-xs hover:bg-softPink hover:text-maroon transition-all shadow-xl flex items-center gap-2">
@@ -358,7 +370,7 @@
                     <h3 class="text-4xl sm:text-5xl font-serif font-black text-cream">
                         ALL 5 LEVELS CLEARED!
                     </h3>
-                    <p class="text-xs text-softPink font-mono uppercase tracking-widest">Disha World Mastery Achieved
+                    <p class="text-xs text-softPink font-mono uppercase tracking-widest">Disha World Mastery Achieved!
                     </p>
 
                     <div
@@ -370,18 +382,26 @@
                         <div class="p-3 bg-cream rounded-xl">🤿 SCUBA DIVER</div>
                     </div>
 
-                    <a href="#projects"
-                        class="px-8 py-4 bg-cream text-maroon font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-softPink transition-all flex items-center gap-2">
-                        <span>EXPLORE MY PROJECTS</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <button id="replayGameBtn"
+                            class="px-8 py-4 bg-softPink text-maroon font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-cream transition-all flex items-center gap-2">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            <span>REPLAY GAME</span>
+                        </button>
+                        <a href="#projects"
+                            class="px-8 py-4 bg-cream text-maroon font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-softPink transition-all flex items-center gap-2">
+                            <span>EXPLORE MY PROJECTS</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!-- Touch / Mouse Instruction Footer -->
             <p class="text-xs text-cream/80 font-mono mt-4 flex items-center justify-center gap-2">
                 <i data-lucide="mouse-pointer-click" class="w-4 h-4 text-softPink"></i>
-                <span>Tip: Click/Touch the player circle on the slingshot, pull back, and release!</span>
+                <span>Pull back on the avatar and aim! Once a target is hit, it disappears so you can focus on the
+                    rest.</span>
             </p>
         </div>
 
@@ -550,7 +570,7 @@
                 </div>
             </div>
 
-            <!-- Project 5 (Guesser Game - Live demo removed) -->
+            <!-- Project 5 -->
             <div
                 class="bg-lightCream rounded-2xl border-2 border-maroon/20 p-6 flex flex-col justify-between hover:border-maroon transition-all shadow-lg group">
                 <div>
@@ -760,13 +780,13 @@
 
             <!-- Profile Links & Resume Downloads -->
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="./disha-cv.pdf" target="_blank"
+                <a id="viewResumeBtn" href="./disha-cv.pdf" target="_blank"
                     class="px-8 py-4 bg-maroon text-cream font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-darkMaroon transition-all flex items-center gap-2">
                     <i data-lucide="eye" class="w-4 h-4"></i>
                     VIEW RESUME
                 </a>
 
-                <a href="./disha-cv.pdf" download="Disha_Rai_Resume.pdf"
+                <a id="downloadResumeBtn" href="./disha-cv.pdf" download="Disha_Rai_Resume.pdf"
                     class="px-8 py-4 bg-cream text-maroon border-2 border-maroon font-display font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-maroon hover:text-cream transition-all flex items-center gap-2">
                     <i data-lucide="download" class="w-4 h-4"></i>
                     DOWNLOAD RESUME (PDF)
@@ -966,34 +986,37 @@
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                if (mobileMenu) mobileMenu.classList.add('hidden');
             });
         });
 
         /* Contact Form Submission Handler */
         const contactForm = document.getElementById('contactForm');
         const formMsg = document.getElementById('formMsg');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            formMsg.classList.remove('hidden');
-            contactForm.reset();
-            setTimeout(() => {
-                formMsg.classList.add('hidden');
-            }, 4000);
-        });
+        if (contactForm && formMsg) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formMsg.classList.remove('hidden');
+                contactForm.reset();
+                setTimeout(() => {
+                    formMsg.classList.add('hidden');
+                }, 4000);
+            });
+        }
 
         /* Resume Toast Notification */
         const viewResumeBtn = document.getElementById('viewResumeBtn');
         const downloadResumeBtn = document.getElementById('downloadResumeBtn');
 
-        const notifyResume = (e) => {
-            e.preventDefault();
+        const notifyResume = () => {
             const notification = document.createElement('div');
             notification.className = 'fixed bottom-5 right-5 bg-maroon text-cream px-6 py-3 rounded-xl font-display font-bold text-xs shadow-2xl z-50 animate-bounce flex items-center gap-2 border border-softPink';
             notification.innerHTML = '<span>📄 Disha_Rai_Resume.pdf loaded successfully!</span>';
@@ -1001,15 +1024,17 @@
             setTimeout(() => notification.remove(), 3200);
         };
 
-        viewResumeBtn.addEventListener('click', notifyResume);
-        downloadResumeBtn.addEventListener('click', notifyResume);
+        if (viewResumeBtn) viewResumeBtn.addEventListener('click', notifyResume);
+        if (downloadResumeBtn) downloadResumeBtn.addEventListener('click', notifyResume);
 
         /* -------------------------------------------------------------
-           PHYSICS MINI-GAME ENGINE: DISHA WORLD
+           PHYSICS MINI-GAME ENGINE: DISHA WORLD (TARGET ELIMINATION SYSTEM)
            ------------------------------------------------------------- */
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const levelNameEl = document.getElementById('levelName');
+        const targetsLeftValEl = document.getElementById('targetsLeftVal');
+        const missesValEl = document.getElementById('missesVal');
         const scoreValEl = document.getElementById('scoreVal');
         const resetLevelBtn = document.getElementById('resetLevelBtn');
         const gameOverlay = document.getElementById('gameOverlay');
@@ -1017,21 +1042,31 @@
         const overlayDesc = document.getElementById('overlayDesc');
         const startGameBtn = document.getElementById('startGameBtn');
         const victoryOverlay = document.getElementById('victoryOverlay');
+        const replayGameBtn = document.getElementById('replayGameBtn');
 
         // Dynamic Resolution Sizing
         function resizeCanvas() {
-            const rect = canvas.getBoundingClientRect();
-            canvas.width = rect.width;
-            canvas.height = rect.height;
+            const rect = canvas.parentElement.getBoundingClientRect();
+            const w = rect.width || 800;
+            const h = rect.height || (w * 9 / 16);
+            canvas.width = Math.floor(w);
+            canvas.height = Math.floor(h);
         }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
 
         // Game State Variables
         let currentLevel = 1;
+        let misses = 0;
         let score = 0;
         let isDragging = false;
         let characterLaunched = false;
+        let shotHit = false;
+        let shotResolved = false;
+        let levelTransitioning = false;
+        let resetTimer = null;
+
+        // Visual FX arrays
+        let particles = [];
+        let floatingTexts = [];
 
         // Launcher Base Position
         const slingshot = {
@@ -1051,114 +1086,177 @@
 
         let targets = [];
 
-        // 5 Level Specifications
+        // 5 Level Specifications (Each with distinct obstacle targets)
         const levels = [
             {
                 level: 1,
                 name: "LEVEL 1: CODING DESK 💻",
-                desc: "Target the software bugs! Pull back on the slingshot launcher to clear your code.",
+                desc: "Target the software bugs! Knock out each target to clear your codebase.",
                 themeBg: "#1A1A1A",
                 targets: [
-                    { x: 0.68, y: 0.62, w: 34, h: 34, label: "🐛", hp: 1 },
-                    { x: 0.82, y: 0.72, w: 38, h: 38, label: "💻", hp: 1 },
-                    { x: 0.75, y: 0.42, w: 30, h: 30, label: "🐛", hp: 1 }
+                    { x: 0.68, y: 0.60, w: 40, h: 40, label: "🐛" },
+                    { x: 0.82, y: 0.70, w: 44, h: 44, label: "💻" },
+                    { x: 0.75, y: 0.38, w: 38, h: 38, label: "🐛" }
                 ]
             },
             {
                 level: 2,
                 name: "LEVEL 2: DSA WORLD 🧠",
-                desc: "Smash through algorithm obstacles (404 errors & Stack Overflow)!",
+                desc: "Smash through algorithm obstacles (404, BST & Stack) to pass Level 2!",
                 themeBg: "#220C0C",
                 targets: [
-                    { x: 0.65, y: 0.7, w: 38, h: 38, label: "404", hp: 1 },
-                    { x: 0.8, y: 0.7, w: 42, h: 42, label: "STACK", hp: 1 },
-                    { x: 0.72, y: 0.45, w: 40, h: 40, label: "BST", hp: 1 }
+                    { x: 0.65, y: 0.68, w: 46, h: 40, label: "404" },
+                    { x: 0.80, y: 0.68, w: 54, h: 40, label: "STACK" },
+                    { x: 0.72, y: 0.42, w: 46, h: 40, label: "BST" }
                 ]
             },
             {
                 level: 3,
                 name: "LEVEL 3: COLLEGE CLASSROOM 📚",
-                desc: "Hit 75% Attendance targets & clear classroom back-bench items!",
+                desc: "Eliminate classroom backbench distractions and hit 75% attendance!",
                 themeBg: "#121A24",
                 targets: [
-                    { x: 0.66, y: 0.65, w: 40, h: 40, label: "📚", hp: 1 },
-                    { x: 0.82, y: 0.65, w: 40, h: 40, label: "🏫", hp: 1 },
-                    { x: 0.74, y: 0.42, w: 40, h: 40, label: "75%", hp: 1 }
+                    { x: 0.66, y: 0.64, w: 44, h: 44, label: "📚" },
+                    { x: 0.82, y: 0.64, w: 44, h: 44, label: "🏫" },
+                    { x: 0.74, y: 0.40, w: 48, h: 44, label: "75%" }
                 ]
             },
             {
                 level: 4,
                 name: "LEVEL 4: MOUNTAIN TREKKING 🏔️",
-                desc: "Peace mode unlocked! Launch across trail peaks and natural obstacles.",
+                desc: "Mountain trails unlocked! Launch across peaks and clear all 3 nature markers.",
                 themeBg: "#122416",
                 targets: [
-                    { x: 0.65, y: 0.6, w: 48, h: 48, label: "🏔️", hp: 1 },
-                    { x: 0.82, y: 0.6, w: 48, h: 48, label: "🌊", hp: 1 },
-                    { x: 0.73, y: 0.35, w: 38, h: 38, label: "🌲", hp: 1 }
+                    { x: 0.65, y: 0.58, w: 50, h: 50, label: "🏔️" },
+                    { x: 0.82, y: 0.58, w: 50, h: 50, label: "🌊" },
+                    { x: 0.73, y: 0.34, w: 44, h: 44, label: "🌲" }
                 ]
             },
             {
                 level: 5,
                 name: "LEVEL 5: SCUBA DREAM 🤿",
-                desc: "Underwater mission! Target deep sea corals to finish Disha World.",
+                desc: "Underwater mission! Knock out deep sea obstacles to achieve Disha World Mastery.",
                 themeBg: "#0B1D28",
                 targets: [
-                    { x: 0.64, y: 0.65, w: 42, h: 42, label: "🐠", hp: 1 },
-                    { x: 0.76, y: 0.65, w: 42, h: 42, label: "🤿", hp: 1 },
-                    { x: 0.86, y: 0.65, w: 42, h: 42, label: "🪸", hp: 1 }
+                    { x: 0.64, y: 0.62, w: 46, h: 46, label: "🐠" },
+                    { x: 0.76, y: 0.62, w: 46, h: 46, label: "🤿" },
+                    { x: 0.86, y: 0.62, w: 46, h: 46, label: "🪸" }
                 ]
             }
         ];
 
-        function initLevel(lvlIdx) {
-            const lvl = levels[lvlIdx - 1];
-            levelNameEl.innerText = lvl.name;
+        // Reset player avatar back to slingshot rest position
+        function resetPlayerToSlingshot() {
             characterLaunched = false;
             isDragging = false;
-
-            slingshot.x = canvas.width * 0.16;
-            slingshot.anchorY = canvas.height * 0.68;
-
+            shotHit = false;
+            shotResolved = false;
             player.x = slingshot.x;
             player.y = slingshot.anchorY;
             player.vx = 0;
             player.vy = 0;
+            if (resetTimer) {
+                clearTimeout(resetTimer);
+                resetTimer = null;
+            }
+        }
 
-            targets = lvl.targets.map(t => ({
+        function initLevel(lvlIdx) {
+            levelTransitioning = false;
+            const lvl = levels[lvlIdx - 1];
+            if (levelNameEl) levelNameEl.innerText = lvl.name;
+
+            slingshot.x = canvas.width * 0.16;
+            slingshot.anchorY = canvas.height * 0.68;
+
+            resetPlayerToSlingshot();
+
+            // Build fresh targets for this level
+            targets = lvl.targets.map((t, idx) => ({
+                baseX: canvas.width * t.x,
+                baseY: canvas.height * t.y,
                 x: canvas.width * t.x,
                 y: canvas.height * t.y,
                 w: t.w,
                 h: t.h,
                 label: t.label,
-                hp: t.hp,
-                hit: false
+                hit: false,
+                offset: idx * 1.5
             }));
+
+            updateUI();
+            particles = [];
+            floatingTexts = [];
+        }
+
+        function updateUI() {
+            const remaining = targets.filter(t => !t.hit).length;
+            if (targetsLeftValEl) targetsLeftValEl.innerText = `${remaining} / ${targets.length}`;
+            if (missesValEl) missesValEl.innerText = misses;
+            if (scoreValEl) scoreValEl.innerText = score;
+        }
+
+        // Particle & Floating Text helpers
+        function spawnHitParticles(x, y) {
+            for (let i = 0; i < 20; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 2 + Math.random() * 6;
+                particles.push({
+                    x,
+                    y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed - 1.5,
+                    size: 3 + Math.random() * 4,
+                    color: i % 2 === 0 ? '#E9C46A' : '#FAF6F0',
+                    life: 1,
+                    decay: 0.035 + Math.random() * 0.02
+                });
+            }
+        }
+
+        function addFloatingText(text, x, y, color) {
+            floatingTexts.push({
+                text,
+                x,
+                y,
+                color: color || '#FAF6F0',
+                alpha: 1,
+                vy: -1.2
+            });
         }
 
         // Pointer Event Handlers
         function getPos(e) {
             const rect = canvas.getBoundingClientRect();
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            let clientX = e.clientX;
+            let clientY = e.clientY;
+
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            }
+
             return {
-                x: clientX - rect.left,
-                y: clientY - rect.top
+                x: (clientX - rect.left) * (canvas.width / rect.width),
+                y: (clientY - rect.top) * (canvas.height / rect.height)
             };
         }
 
         function onPointerDown(e) {
-            if (characterLaunched) return;
+            if (characterLaunched || levelTransitioning) return;
             const pos = getPos(e);
             const dist = Math.hypot(pos.x - player.x, pos.y - player.y);
-            if (dist < 50) {
+            if (dist < 60) {
+                if (e.cancelable) e.preventDefault();
                 isDragging = true;
             }
         }
 
         function onPointerMove(e) {
             if (!isDragging) return;
+            if (e.cancelable) e.preventDefault();
             const pos = getPos(e);
-            const maxDrag = 90;
+            const maxDrag = 95;
             const dx = pos.x - slingshot.x;
             const dy = pos.y - slingshot.anchorY;
             const angle = Math.atan2(dy, dx);
@@ -1171,51 +1269,154 @@
         function onPointerUp() {
             if (!isDragging) return;
             isDragging = false;
-            characterLaunched = true;
 
             const dx = slingshot.x - player.x;
             const dy = slingshot.anchorY - player.y;
-            player.vx = dx * 0.25;
-            player.vy = dy * 0.25;
+
+            // Small tap cancellation: do not launch if not pulled back
+            if (Math.hypot(dx, dy) < 14) {
+                player.x = slingshot.x;
+                player.y = slingshot.anchorY;
+                return;
+            }
+
+            characterLaunched = true;
+            shotHit = false;
+            shotResolved = false;
+
+            player.vx = dx * 0.24;
+            player.vy = dy * 0.24;
+
+            // Failsafe timeout in case avatar stays in flight too long
+            resetTimer = setTimeout(() => {
+                finishShot();
+            }, 5500);
         }
 
+        // Resolves the current shot: registers miss or triggers next round/level
+        function finishShot() {
+            if (!characterLaunched || shotResolved) return;
+            shotResolved = true;
+
+            if (resetTimer) {
+                clearTimeout(resetTimer);
+                resetTimer = null;
+            }
+
+            if (!shotHit) {
+                // Counted as a MISS
+                misses++;
+                updateUI();
+                addFloatingText("MISS! ❌", Math.min(Math.max(player.x, 90), canvas.width - 90), Math.min(player.y, canvas.height * 0.8), "#E8C5C8");
+            }
+
+            const remaining = targets.filter(t => !t.hit).length;
+
+            setTimeout(() => {
+                if (remaining === 0) {
+                    // All targets in this level eliminated!
+                    levelTransitioning = true;
+                    characterLaunched = false;
+                    addFloatingText(`🎉 ALL TARGETS DESTROYED!`, canvas.width / 2, canvas.height * 0.45, "#E9C46A");
+
+                    setTimeout(() => {
+                        if (currentLevel < 5) {
+                            currentLevel++;
+                            overlayTitle.innerText = `LEVEL ${currentLevel} UNLOCKED!`;
+                            overlayDesc.innerText = levels[currentLevel - 1].desc;
+                            startGameBtn.innerHTML = `<span>START LEVEL ${currentLevel}</span><i data-lucide="play" class="w-4 h-4"></i>`;
+                            lucide.createIcons();
+                            gameOverlay.classList.remove('hidden');
+                        } else {
+                            victoryOverlay.classList.remove('hidden');
+                        }
+                    }, 850);
+                } else {
+                    // Keep remaining targets intact, reset player to slingshot for next shot
+                    resetPlayerToSlingshot();
+                }
+            }, 600);
+        }
+
+        // Event Listeners for Controls
         canvas.addEventListener('mousedown', onPointerDown);
-        canvas.addEventListener('mousemove', onPointerMove);
+        window.addEventListener('mousemove', onPointerMove);
         window.addEventListener('mouseup', onPointerUp);
 
-        canvas.addEventListener('touchstart', onPointerDown);
-        canvas.addEventListener('touchmove', onPointerMove);
+        canvas.addEventListener('touchstart', onPointerDown, { passive: false });
+        window.addEventListener('touchmove', onPointerMove, { passive: false });
         window.addEventListener('touchend', onPointerUp);
 
-        resetLevelBtn.addEventListener('click', () => {
-            initLevel(currentLevel);
+        if (resetLevelBtn) {
+            resetLevelBtn.addEventListener('click', () => {
+                initLevel(currentLevel);
+            });
+        }
+
+        if (startGameBtn) {
+            startGameBtn.addEventListener('click', () => {
+                gameOverlay.classList.add('hidden');
+                resizeCanvas();
+                initLevel(currentLevel);
+            });
+        }
+
+        if (replayGameBtn) {
+            replayGameBtn.addEventListener('click', () => {
+                victoryOverlay.classList.add('hidden');
+                currentLevel = 1;
+                score = 0;
+                misses = 0;
+                overlayTitle.innerText = "DISHA WORLD LAUNCHER";
+                overlayDesc.innerText = levels[0].desc;
+                startGameBtn.innerHTML = '<span>START LEVEL 1</span><i data-lucide="play" class="w-4 h-4"></i>';
+                lucide.createIcons();
+                gameOverlay.classList.remove('hidden');
+                resizeCanvas();
+                initLevel(1);
+            });
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            if (!characterLaunched) {
+                initLevel(currentLevel);
+            }
         });
 
-        startGameBtn.addEventListener('click', () => {
-            gameOverlay.classList.add('hidden');
-            initLevel(currentLevel);
-        });
-
-        // Physics Updates & Trajectory Calculations
+        // Physics Updates & Collisions
         function updatePhysics() {
-            if (characterLaunched) {
+            const time = Date.now() * 0.003;
+
+            // Idle floating animation on living targets
+            targets.forEach(t => {
+                if (!t.hit) {
+                    t.y = t.baseY + Math.sin(time + t.offset) * 5;
+                }
+            });
+
+            if (characterLaunched && !shotResolved) {
                 player.x += player.vx;
                 player.y += player.vy;
                 player.vy += 0.45; // Gravity acceleration
 
+                const floorY = canvas.height * 0.85 - player.radius;
+
                 // Ground Collision
-                if (player.y > canvas.height * 0.85 - player.radius) {
-                    player.y = canvas.height * 0.85 - player.radius;
+                if (player.y >= floorY) {
+                    player.y = floorY;
                     player.vx *= 0.65;
                     player.vy = -player.vy * 0.35;
 
-                    if (Math.abs(player.vx) < 0.4 && Math.abs(player.vy) < 0.4) {
-                        setTimeout(() => {
-                            if (characterLaunched && targets.some(t => !t.hit)) {
-                                initLevel(currentLevel);
-                            }
-                        }, 1200);
+                    // If rolled to a near stop on ground, finalize shot
+                    if (Math.abs(player.vx) < 0.45 && Math.abs(player.vy) < 0.45) {
+                        finishShot();
                     }
+                }
+
+                // Off-screen Boundaries
+                if (player.x > canvas.width + 100 || player.x < -60 || player.y > canvas.height + 100) {
+                    finishShot();
                 }
 
                 // Target Collision
@@ -1227,28 +1428,44 @@
                             player.y + player.radius > t.y - t.h / 2 &&
                             player.y - player.radius < t.y + t.h / 2
                         ) {
+                            // Target is hit and permanently disappears for this level!
                             t.hit = true;
+                            shotHit = true;
                             score += 150;
-                            scoreValEl.innerText = score;
+                            updateUI();
+
+                            spawnHitParticles(t.x, t.y);
+                            addFloatingText(`💥 DESTROYED! +150 XP`, t.x, t.y - 25, '#E9C46A');
+
+                            // Knock avatar slightly on impact
+                            player.vx *= 0.35;
+                            player.vy = -2.2;
+
+                            // Allow brief follow-through momentum then conclude shot
+                            setTimeout(() => {
+                                finishShot();
+                            }, 450);
                         }
                     }
                 });
+            }
 
-                // Clear Level Check
-                if (targets.every(t => t.hit)) {
-                    characterLaunched = false;
-                    setTimeout(() => {
-                        if (currentLevel < 5) {
-                            currentLevel++;
-                            overlayTitle.innerText = `LEVEL ${currentLevel} UNLOCKED!`;
-                            overlayDesc.innerText = levels[currentLevel - 1].desc;
-                            startGameBtn.innerText = `START LEVEL ${currentLevel}`;
-                            gameOverlay.classList.remove('hidden');
-                        } else {
-                            victoryOverlay.classList.remove('hidden');
-                        }
-                    }, 600);
-                }
+            // Update Particle FX
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.15;
+                p.life -= p.decay;
+                if (p.life <= 0) particles.splice(i, 1);
+            }
+
+            // Update Floating Texts
+            for (let i = floatingTexts.length - 1; i >= 0; i--) {
+                const ft = floatingTexts[i];
+                ft.y += ft.vy;
+                ft.alpha -= 0.018;
+                if (ft.alpha <= 0) floatingTexts.splice(i, 1);
             }
         }
 
@@ -1265,33 +1482,41 @@
             ctx.fillRect(0, canvas.height * 0.85, canvas.width, canvas.height * 0.15);
 
             // Slingshot Post
-            ctx.strokeStyle = "#F5EFE6";
+            ctx.strokeStyle = "#D4A373";
             ctx.lineWidth = 6;
             ctx.beginPath();
             ctx.moveTo(slingshot.x, canvas.height * 0.85);
             ctx.lineTo(slingshot.x, slingshot.anchorY);
             ctx.stroke();
 
-            // Elastic Band & Aiming Trajectory Indicator
+            // Slingshot Fork
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(slingshot.x - 12, slingshot.anchorY - 10);
+            ctx.lineTo(slingshot.x, slingshot.anchorY);
+            ctx.lineTo(slingshot.x + 12, slingshot.anchorY - 10);
+            ctx.stroke();
+
+            // Elastic Bands & Aiming Trajectory Indicator
             if (isDragging) {
                 ctx.strokeStyle = "#E8C5C8";
                 ctx.lineWidth = 3;
                 ctx.beginPath();
-                ctx.moveTo(slingshot.x - 10, slingshot.anchorY);
+                ctx.moveTo(slingshot.x - 12, slingshot.anchorY - 10);
                 ctx.lineTo(player.x, player.y);
-                ctx.lineTo(slingshot.x + 10, slingshot.anchorY);
+                ctx.lineTo(slingshot.x + 12, slingshot.anchorY - 10);
                 ctx.stroke();
 
                 // Trajectory Arc Line
-                const simVx = (slingshot.x - player.x) * 0.25;
-                const simVy = (slingshot.anchorY - player.y) * 0.25;
+                const simVx = (slingshot.x - player.x) * 0.24;
+                const simVy = (slingshot.anchorY - player.y) * 0.24;
                 ctx.beginPath();
                 ctx.setLineDash([4, 6]);
-                ctx.strokeStyle = "rgba(233, 196, 106, 0.7)";
+                ctx.strokeStyle = "rgba(233, 196, 106, 0.75)";
                 let simX = player.x;
                 let simY = player.y;
                 let currVy = simVy;
-                for (let i = 0; i < 20; i++) {
+                for (let i = 0; i < 22; i++) {
                     simX += simVx;
                     simY += currVy;
                     currVy += 0.45;
@@ -1301,22 +1526,32 @@
                 ctx.setLineDash([]);
             }
 
-            // Draw Level Targets
+            // Draw Only UNHIT Targets (Hit targets disappear immediately!)
             targets.forEach(t => {
                 if (!t.hit) {
+                    ctx.save();
+                    ctx.translate(t.x, t.y);
+
                     ctx.fillStyle = "#FAF6F0";
                     ctx.beginPath();
-                    ctx.roundRect(t.x - t.w / 2, t.y - t.h / 2, t.w, t.h, 8);
+                    if (ctx.roundRect) {
+                        ctx.roundRect(-t.w / 2, -t.h / 2, t.w, t.h, 8);
+                    } else {
+                        ctx.rect(-t.w / 2, -t.h / 2, t.w, t.h);
+                    }
                     ctx.fill();
                     ctx.strokeStyle = "#520C0C";
                     ctx.lineWidth = 2.5;
                     ctx.stroke();
 
-                    ctx.font = "bold 16px sans-serif";
+                    const fontSize = t.label.length > 3 ? 12 : 18;
+                    ctx.font = `bold ${fontSize}px sans-serif`;
                     ctx.textAlign = "center";
                     ctx.textBaseline = "middle";
                     ctx.fillStyle = "#1A1A1A";
-                    ctx.fillText(t.label, t.x, t.y);
+                    ctx.fillText(t.label, 0, 0);
+
+                    ctx.restore();
                 }
             });
 
@@ -1329,7 +1564,7 @@
             ctx.lineWidth = 3;
             ctx.stroke();
 
-            // Avatar Facial Features
+            // Avatar Face Features
             ctx.fillStyle = "#520C0C";
             ctx.beginPath();
             ctx.arc(player.x - 5, player.y - 3, 2.5, 0, Math.PI * 2);
@@ -1343,12 +1578,42 @@
             ctx.lineWidth = 2;
             ctx.stroke();
 
+            // Particles Rendering
+            particles.forEach(p => {
+                ctx.globalAlpha = Math.max(p.life, 0);
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            ctx.globalAlpha = 1;
+
+            // Floating Texts Rendering
+            floatingTexts.forEach(ft => {
+                ctx.save();
+                ctx.globalAlpha = Math.max(ft.alpha, 0);
+                ctx.font = "bold 15px sans-serif";
+                ctx.textAlign = "center";
+                ctx.fillStyle = ft.color;
+                ctx.fillText(ft.text, ft.x, ft.y);
+                ctx.restore();
+            });
+
+            // On-Canvas Target Counter Header
+            const remaining = targets.filter(t => !t.hit).length;
+            ctx.font = "bold 12px sans-serif";
+            ctx.fillStyle = "rgba(250, 246, 240, 0.85)";
+            ctx.textAlign = "center";
+            ctx.fillText(`TARGETS REMAINING: ${remaining} / ${targets.length}`, canvas.width / 2, 28);
+
             updatePhysics();
             requestAnimationFrame(drawFrame);
         }
 
         // Start Game Loop on Load
         window.addEventListener('load', () => {
+            resizeCanvas();
+            initLevel(1);
             requestAnimationFrame(drawFrame);
         });
     </script>
